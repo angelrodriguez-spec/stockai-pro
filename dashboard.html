@@ -3,7 +3,6 @@
 <head>
     <title>Dashboard - StockAI</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="dashboard-body">
 
@@ -11,6 +10,7 @@
 if(localStorage.getItem("stockAI_loggedIn")!=="true"){
     window.location.href="auth.html";
 }
+
 function logout(){
     localStorage.removeItem("stockAI_loggedIn");
     window.location.href="landing.html";
@@ -21,16 +21,19 @@ function logout(){
 
 <div class="dashboard">
 
+    <!-- Top Bar -->
     <div class="top-bar">
         <h1>📊 Dashboard</h1>
         <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
 
+    <!-- Stock Symbol Input & Analyze Button -->
     <div class="search-box">
         <input type="text" id="stockSymbol" placeholder="Enter Symbol (AAPL)">
         <button onclick="getStockData()">Analyze</button>
     </div>
 
+    <!-- Dashboard Stats Cards -->
     <div class="stats-grid">
         <div class="glass-card stat" id="priceCard">--<span>Current Price</span></div>
         <div class="glass-card stat" id="changeCard">--<span>Daily Change</span></div>
@@ -39,10 +42,12 @@ function logout(){
         <div class="glass-card stat" id="confidenceCard">--<span>Confidence</span></div>
     </div>
 
+    <!-- AI Explanation Box -->
     <div class="glass-card ai-box" id="aiInfo">
         🤖 AI explanation will appear here after analysis.
     </div>
 
+    <!-- Stock Chart -->
     <div class="glass-card chart-box">
         <canvas id="stockChart"></canvas>
     </div>

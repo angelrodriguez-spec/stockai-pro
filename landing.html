@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StockAI Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="landing-body">
+
+<div class="gradient-bg"></div>
+
+<div class="hero">
+    <h1>🚀 StockAI Pro</h1>
+    <p>
+        AI-Powered Market Intelligence.<br>
+        Predict Trends. Measure Risk. Trade Smarter.
+    </p>
+    <button onclick="goAuth()">Get Started</button>
+</div>
+
+<script>
+function goAuth(){
+    document.body.classList.add("fade-out");
+    setTimeout(()=>window.location.href="auth.html",500);
+}
+</script>
+
+</body>
+</html>

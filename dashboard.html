@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - StockAI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+
+<script>
+if(localStorage.getItem("stockAI_loggedIn")!=="true"){
+    window.location.href="auth.html";
+}
+function logout(){
+    localStorage.removeItem("stockAI_loggedIn");
+    window.location.href="landing.html";
+}
+</script>
+
+<div class="gradient-bg"></div>
+
+<div class="dashboard">
+
+    <div class="top-bar">
+        <h1>📊 Dashboard</h1>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="stockSymbol" placeholder="Enter Symbol (AAPL)">
+        <button onclick="getStockData()">Analyze</button>
+    </div>
+
+    <div class="stats-grid">
+        <div class="glass-card stat" id="priceCard">--<span>Current Price</span></div>
+        <div class="glass-card stat" id="changeCard">--<span>Daily Change</span></div>
+        <div class="glass-card stat" id="forecastCard">--<span>7-Day Forecast</span></div>
+        <div class="glass-card stat" id="signalCard">--<span>AI Signal</span></div>
+        <div class="glass-card stat" id="confidenceCard">--<span>Confidence</span></div>
+    </div>
+
+    <div class="glass-card ai-box" id="aiInfo">
+        🤖 AI explanation will appear here after analysis.
+    </div>
+
+    <div class="glass-card chart-box">
+        <canvas id="stockChart"></canvas>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
